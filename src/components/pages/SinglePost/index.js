@@ -37,7 +37,7 @@ class SinglePost extends Component {
     } else {
       const id = this.props.comments[this.props.comments.length - 1]['id'] + 1
       console.log(id);
-      const comment = { id, body: this.state.value }
+      const comment = { id, body: this.state.value };
       this.props.addComment(comment);
       alert('Your opinion is very important to us :)');
       fetch('https://simple-blog-api.crew.red/comments', {
@@ -47,7 +47,7 @@ class SinglePost extends Component {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({id:comment.id, body: comment.body})
-      })
+      });
     }
   }
 
@@ -61,13 +61,13 @@ class SinglePost extends Component {
         <p className='author'><span>{author}</span> <span>{date}</span></p>
         <NavLink to="/"><i className="fas fa-angle-left"></i> Return</NavLink>
         <div>
-          <h2>Comments <button type='button' onClick={this.openComments}>{this.state.buttonOpen ? 'Hide' : 'Show'}</button></h2>
+          <h2>Comments <button className='button' type='button' onClick={this.openComments}>{this.state.buttonOpen ? 'Hide' : 'Show'}</button></h2>
           <ul>
             {this.state.buttonOpen && commentsList}
           </ul>
         </div>
-        <input type='textarea' onChange={this.handleChange} />
-        <input type='button' onClick={this.addComment} value='Send new' />
+        <input className='textarea' type='textarea' onChange={this.handleChange} />
+        <input className='button' type='button' onClick={this.addComment} value='Send new' />
       </div>
     )
   }

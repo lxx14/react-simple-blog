@@ -23,6 +23,31 @@
   input {
     width: 150px;
   }
+  .textarea {
+    border: 1px solid black;
+    margin: 0 0 10px 0;
+    min-height: 50px;
+    border-radius: 10px;
+    padding: 5px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .button {
+    padding: 7px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    box-shadow: 1px 1px 3px 0 black;
+    transition: 0.2s;
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
 }
 
 @keyframes shake-arrow {
