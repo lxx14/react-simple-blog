@@ -1,5 +1,5 @@
-import data from '../../../system';
+import data from '../../../system/data.json';
 
-export const getSomethingFromServer = () => {
+export const getPosts = () => {
   return fetch(data.getPosts).then((responce) => {return responce.json()})
 }
