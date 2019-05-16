@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPosts } from './service';
+import { addPostsAction } from './actions';
 import './style.scss';
 
 class Posts extends Component {
@@ -37,7 +38,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setPosts: (data) => dispatch({ type: "SET_POSTS", data })
+  setPosts: (data) => dispatch(addPostsAction(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts);

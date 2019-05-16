@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import './style.scss';
 
 const SinglePost = (props) => {
-  console.log(props.onePost);
   const { author, body, date, title } = props.onePost;
   return (
     <div className='page single-page'>
