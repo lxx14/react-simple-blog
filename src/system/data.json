@@ -1,3 +1,4 @@
 {
-  "getPosts": "https://simple-blog-api.crew.red/posts"
+  "getPosts": "https://simple-blog-api.crew.red/posts",
+  "getComments": "https://simple-blog-api.crew.red/comments"
 }
