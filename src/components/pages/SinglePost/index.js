@@ -16,7 +16,7 @@ class SinglePost extends Component {
 
   componentDidMount() {
     const commentsFromFetch = getComments();
-    commentsFromFetch.then((data)=>{this.props.setComments(data)})
+    commentsFromFetch.then((data) => { this.props.setComments(data) })
   }
 
   openComments = () => {
@@ -26,22 +26,26 @@ class SinglePost extends Component {
   }
 
   handleChange = (e) => {
-      this.setState({
+    this.setState({
       value: e.target.value
     })
   }
 
   addComment = () => {
-    const id = this.props.comments[this.props.comments.length-1]['id']+1
-    console.log(id);
-    const comment = {id, body: this.state.value}
-    this.props.addComment(comment);
-    alert ('Your opinion is very important to us :)')
+    if (!this.state.value) {
+      alert('field is ampty... Add some warm words to us!')
+    } else {
+      const id = this.props.comments[this.props.comments.length - 1]['id'] + 1
+      console.log(id);
+      const comment = { id, body: this.state.value }
+      this.props.addComment(comment);
+      alert('Your opinion is very important to us :)')
+    }
   }
 
   render() {
     const { author, body, date, title } = this.props.onePost;
-    const commentsList = this.props.comments.map(item=><li key={item.id}>Comment №: {item.id}</li>)
+    const commentsList = this.props.comments.map(item => <li key={item.id}>Comment №: {item.id}</li>)
     return (
       <div className='page single-page'>
         <h1>{title}</h1>
@@ -51,10 +55,10 @@ class SinglePost extends Component {
         <div>
           <h2>Comments <button type='button' onClick={this.openComments}>{this.state.buttonOpen ? 'Hide' : 'Show'}</button></h2>
           <ul>
-            {this.state.buttonOpen&&commentsList}
+            {this.state.buttonOpen && commentsList}
           </ul>
         </div>
-        <input type='textarea' onChange={this.handleChange}/>
+        <input type='textarea' onChange={this.handleChange} />
         <input type='button' onClick={this.addComment} value='Send new' />
       </div>
     )
