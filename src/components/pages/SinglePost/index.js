@@ -9,7 +9,8 @@ class SinglePost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonOpen: false
+      buttonOpen: false,
+      value: ''
     }
   }
 
@@ -24,11 +25,18 @@ class SinglePost extends Component {
     })
   }
 
+  handleChange = (e) => {
+      this.setState({
+      value: e.target.value
+    })
+  }
+
   addComment = () => {
     const id = this.props.comments[this.props.comments.length-1]['id']+1
     console.log(id);
-    const comment = {id, body: 'test11111111111111111111'}
+    const comment = {id, body: this.state.value}
     this.props.addComment(comment);
+    alert ('Your opinion is very important to us :)')
   }
 
   render() {
@@ -46,7 +54,7 @@ class SinglePost extends Component {
             {this.state.buttonOpen&&commentsList}
           </ul>
         </div>
-        <input type='textarea' />
+        <input type='textarea' onChange={this.handleChange}/>
         <input type='button' onClick={this.addComment} value='Send new' />
       </div>
     )
