@@ -39,7 +39,15 @@ class SinglePost extends Component {
       console.log(id);
       const comment = { id, body: this.state.value }
       this.props.addComment(comment);
-      alert('Your opinion is very important to us :)')
+      alert('Your opinion is very important to us :)');
+      fetch('https://simple-blog-api.crew.red/comments', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id:comment.id, body: comment.body})
+      })
     }
   }
 
