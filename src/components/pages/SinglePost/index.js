@@ -23,9 +23,14 @@ class SinglePost extends Component {
     })
   }
 
+  addComment = () => {
+    const id = this.props.comments[this.props.comments.length-1]['id']+1
+    console.log(id);
+    const comment = {id, body: 'test11111111111111111111'}
+  }
+
   render() {
     const { author, body, date, title } = this.props.onePost;
-    console.log(this.props.comments)
     const commentsList = this.props.comments.map(item=><li key={item.id}>Comment №: {item.id}</li>)
     return (
       <div className='page single-page'>
@@ -40,7 +45,7 @@ class SinglePost extends Component {
           </ul>
         </div>
         <input type='textarea' />
-        <input type='button' value='Send new' />
+        <input type='button' onClick={this.addComment} value='Send new' />
       </div>
     )
   }
