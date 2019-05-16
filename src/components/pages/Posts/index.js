@@ -1,21 +1,43 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { getPosts } from './service';
 import './style.scss';
 
 class Posts extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
-    const posts = getPosts();
-    console.log(posts);
+    const postsFromFetch = getPosts();
+    postsFromFetch.then((posts)=>{this.props.setPosts(posts)})
   }
 
   render() {
+    const {posts} = this.props;
+    const postsList = posts.map((item)=>
+    <div key={item.id} className='post-page'>
+    <h1>{item.title}</h1>
+    <p>{item.author}, {item.date}</p>
+    <NavLink to={`page/${item.id}`}>Read more</NavLink>
+    </div>
+    );
   return (
     <div className='page'>
-      <h1>Posts</h1>
+      {postsList}
     </div>
   )
   }
 }
 
-export default Posts;
+const mapStateToProps = (state) => ({
+  posts: state.postsContainer.posts,   
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setPosts: (data) => dispatch({type:"SET_POSTS", data})
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
