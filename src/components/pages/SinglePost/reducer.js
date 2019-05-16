@@ -1,5 +1,5 @@
 const initialState = {
-  singlePost: [],          
+  comments: [],          
 };
 
 export default function(state = initialState, action) {

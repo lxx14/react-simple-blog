@@ -1,0 +1,20 @@
+.single-page {
+  padding: 10px;
+  a {
+    font-size: 30px;
+    color: rgb(161, 97, 0);
+    .fa-angle-left {
+      position: relative;
+      top: 10px;
+      margin: 0 10px 0 0;
+      font-size: 50px;
+      animation: shake-arrow 0.5s linear infinite;
+    }
+  }
+}
+
+@keyframes shake-arrow {
+  0% {right: 0}
+  50% {right: 5px}
+  100% {right: 0}
+}
