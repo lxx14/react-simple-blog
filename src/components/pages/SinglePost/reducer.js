@@ -10,6 +10,11 @@ export default function(state = initialState, action) {
       ...state,
       comments: [...action.data]
     }
+    case "ADD_COMMENT": 
+    return {
+      ...state,
+      comments: [...state.comments, action.item]
+    }
     default: return state;
   }
 };

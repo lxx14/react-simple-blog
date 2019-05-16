@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getComments } from './service';
+import { addCommentAction, setCommentAction } from './actions';
 import './style.scss';
 
 class SinglePost extends Component {
@@ -27,6 +28,7 @@ class SinglePost extends Component {
     const id = this.props.comments[this.props.comments.length-1]['id']+1
     console.log(id);
     const comment = {id, body: 'test11111111111111111111'}
+    this.props.addComment(comment);
   }
 
   render() {
@@ -62,7 +64,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setComments: (data) => dispatch({type:"SET_COMMENTS", data})
+  setComments: (data) => dispatch(setCommentAction(data)),
+  addComment: (item) => dispatch(addCommentAction(item))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);
