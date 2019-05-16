@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './style.scss';
 
-const Posts = () => {
+class Posts extends Component {
+
+  render() {
   return (
     <div className='page'>
       <h1>Posts</h1>
     </div>
   )
+  }
 }
 
 export default Posts;
