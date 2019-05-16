@@ -1,5 +1,14 @@
 .single-page {
   padding: 10px;
+  h1 {
+    text-align: center;
+  }
+  .author {
+    display: flex;
+    width: 200px;
+    margin: 10px auto;
+    justify-content: space-between;
+  }
   a {
     font-size: 30px;
     color: rgb(161, 97, 0);
