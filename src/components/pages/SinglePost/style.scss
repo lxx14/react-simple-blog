@@ -20,6 +20,9 @@
       animation: shake-arrow 0.5s linear infinite;
     }
   }
+  input {
+    width: 150px;
+  }
 }
 
 @keyframes shake-arrow {

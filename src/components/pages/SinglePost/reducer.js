@@ -2,6 +2,14 @@ const initialState = {
   comments: [],
 };
 
-export default function (state = initialState, action) {
-  return state;
+export default function(state = initialState, action) {
+
+  switch(action.type) {
+    case "SET_COMMENTS": 
+    return {
+      ...state,
+      comments: [...action.data]
+    }
+    default: return state;
+  }
 };
