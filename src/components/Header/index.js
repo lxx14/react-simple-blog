@@ -4,7 +4,7 @@ import './style.scss';
 const Header = () => {
   return (
     <div className='header'>
-      <h1>Hello!</h1>
+      <h1>Hello! <i className="fas fa-hand-peace"></i></h1>
       <h2>Welcome to our tiny blog</h2>
       <p>...we really glad to see you:)</p>
     </div>

@@ -4,9 +4,35 @@
   h1, h2 {
     text-align: center;
   }
+  h1 {
+    color: rgb(0, 185, 185);
+    .fas {
+      position: relative;
+      color: black;
+      font-size: 1.2em;
+      margin: 0 0 0 10px;
+      text-shadow: 1px 1px 3px black;
+      animation: move-hand 1s linear infinite;
+    }
+  }
   p {
     text-align: end;
-    padding: 0 20px 0 0;
+    padding: 0 20px 5px 0;
     font-weight: bold;
+    animation: change-color-text 2s linear infinite
   }
+}
+
+@keyframes change-color-text {
+  0% {color: white}
+  50% {color: rgb(253, 255, 142)}
+  100% {color: white}
+}
+
+@keyframes move-hand {
+  0% {transform: rotate(0deg)}
+  25% {transform: rotate(5deg)}
+  50% {transform: rotate(0deg)}
+  75% {transform: rotate(-5deg)}
+  100% {transform: rotate(0deg)}
 }
