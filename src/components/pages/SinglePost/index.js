@@ -5,7 +5,7 @@ import './style.scss';
 
 const SinglePost = (props) => {
   console.log(props.onePost);
-  const {author, body, date, title} = props.onePost;
+  const { author, body, date, title } = props.onePost;
   return (
     <div className='page single-page'>
       <h1>{title}</h1>
@@ -18,7 +18,7 @@ const SinglePost = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   const singleId = ownProps.match.params.id;
-  const onePost = state.postsContainer.posts.find( item => parseFloat(singleId) === item.id);
+  const onePost = state.postsContainer.posts.find(item => parseFloat(singleId) === item.id);
   return {
     onePost
   }
