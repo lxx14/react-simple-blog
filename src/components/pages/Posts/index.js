@@ -3,6 +3,8 @@ import './style.scss';
 
 class Posts extends Component {
 
+  
+
   render() {
   return (
     <div className='page'>
