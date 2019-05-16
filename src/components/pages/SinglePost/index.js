@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getComments } from './service';
 import './style.scss';
 
-const SinglePost = (props) => {
-  const { author, body, date, title } = props.onePost;
-  return (
-    <div className='page single-page'>
-      <h1>{title}</h1>
-      <p>{body}</p>
-      <p className='author'><span>{author}</span> <span>{date}</span></p>
-      <NavLink to="/"><i className="fas fa-angle-left"></i> Return</NavLink>
-    </div>
-  )
+class SinglePost extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { author, body, date, title } = this.props.onePost;
+    return (
+      <div className='page single-page'>
+        <h1>{title}</h1>
+        <p>{body}</p>
+        <p className='author'><span>{author}</span> <span>{date}</span></p>
+        <NavLink to="/"><i className="fas fa-angle-left"></i> Return</NavLink>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
