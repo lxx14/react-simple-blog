@@ -1,0 +1,24 @@
+.post-page {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background-color: rgb(255, 207, 118);
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.425);
+  a {
+    width: 100px;
+    background-color: rgb(97, 97, 97);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    align-self: flex-end;
+    color: white;
+    box-shadow: 1px 1px 3px 0 black;
+    transition: 0.5s;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

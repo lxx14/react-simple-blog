@@ -19,9 +19,9 @@ class Posts extends Component {
     const {posts} = this.props;
     const postsList = posts.map((item)=>
     <div key={item.id} className='post-page'>
-    <h1>{item.title}</h1>
+    <h2>{item.title}</h2>
     <p>{item.author}, {item.date}</p>
-    <NavLink to={`page/${item.id}`}>Read more</NavLink>
+    <NavLink to={`post/${item.id}`}>Read more</NavLink>
     </div>
     );
   return (
